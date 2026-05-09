@@ -1,0 +1,226 @@
+Boll Deluxe "2.1.6" Changelog:
+
+[General Additions]
+
+- Added Upside Down slopes.
+- Added Background slopes.
+- Added Warp biome.
+- Added Blue Coins that only appear when a P-Switch is activated.
+- Added   Boat
+- Added rerouting level skins by adding "¬foldername" to the end of the description.
+- Added epic speed mode
+
+[General Removals]
+
+- Removed Toad.
+- Removed the functionality of the "lowgrav" and "highgrav" cheats. This was meant to be temporary while figuring out something else but they were never restored.
+- Disabled the title screen item rain.
+- Removed signpost sprite interpolation.
+
+[Bugfixes]
+
+- Fixed Lain mushroom retainer easter egg causing constant errors.
+- Gobble now uses the current biome's objects sheet rather than always using Ground's.
+- Fixed player collision checking for objects at double the speed the player is moving at.
+- Fixed some RNG being consistent between playthroughs.
+- Level descriptions in the pause screen should properly update if the description does not use text tags.
+- Shields now properly display on the level transition screen.
+- Charm "customchange" code now runs on the level transition screen.
+- Code Blocks no longer error after attempting to clean up twice.
+- Warp Boxes no longer error when warping the player.
+- Co-op mode no longer uses Battle mode's manual stages-to-play count.
+- Co-op mode no longer shows the Battle mode results screen.
+- Fixed players being able to climb while in the damage knockback state.
+- Enemies that turn / jump at ledges no longer think slopes are ledges.
+- Fixed the "worldreload" and "levelreload" console commands.
+- Fixed Fire Piranha Plant behaviour.
+- Slopes connecting to walls no longer place connector tiles in the wrong place.
+- Fence gates no longer connect to slopes and ground tiles.
+- Semiground slopes now use bottom tiles.
+- Fixed lightbulbs.
+- Fixed P-Switches turning Red Coins into bricks.
+- Fixed the roster constantly erroring if you use a controller.
+- Hovering the cursor over the menu button tooltip while in the options menu no longer tries to helpfully inform you of what it does by showing "tip mmlegends"
+- Fixed the closing animation's fade to white.
+- Fixed roster page calculations being off by one.
+- Fixed roster page calculations counting the Main Cast.
+- Fixed roster page calculations counting charms with a swap character.
+- Fixed watching a replay not replacing button names in level names with the buttons.
+- Fixed the game drawing the entire hud invisible when the hud alpha is set to 0 rather than not drawing the hud.
+- Charms that have a swap character no longer disappear from the roster if you don't have the character they swap with.
+- Fixed spawn point tool not telling you place the spawn point at the very bottom of a region.
+- Fixed TAS speed controls changing the speed twice on the level transition screen.
+- Fixed the random character function being able to pick disabled and broken charms.
+- Fixed TAS Time Attack leaderboards judging your position based on the regular leaderboards and overwriting all of the TAS times with regular level times.
+- Fixed level skin music not working because it looked in the wrong folder.
+- Fixed level skin music being broken when playtesting in Lemon.
+- Fixed message boxes having a regular windows title bar.
+- Banzai Bills no longer turn around and fly the other way when being reactivated.
+
+[Character Tweaks]
+
+- Stanley is now part of the main cast.
+- The Kid is now locked again.
+- The Kid is now rewarded with a shield if he collects 8 red coins while already wearing a bow.
+- Fixed many bugs with The Kid's bow.
+- The Kid no longer dies when collecting powerups or colliding with brick particles while invincible.
+- The Kid's gibs render again, and now use palettes if the current skin does.
+- The Kid's gibs now collide with the ground properly.
+- Fixed Knuckles' speed cap applying in unintended situations due to conflicting activation conditions.
+- Running into objects that Knuckles can break automatically now breaks the object before you lose all of your speed from running into it.
+- Tails' flight is now cancelled when climbing.
+- Nerfed Sonic and Super Sonic's maximum speeds
+- Nerfed Sonic and Super Sonic's spindash.
+- Sonic and Super Sonic now decay speed at a rate of 0.015 per frame if above their speed cap.
+- Sonic and Super Sonic's spindash is now affected by being underwater.
+- Changed the behaviour of Sonic and Super Sonic's airdash when not transformed.
+- Fixed Sonic and Super Sonic's water run conditions not being met while running on water.
+- Fixed Sonic and Super Sonic losing their boosted state when jumping while not transformed.
+- Fixed Super Sonic's super transformation ending when entering a door.
+- Super Sonic now breaks cracked ground in his super form.
+- Super Sonic's super music no longer overrides P-Switch and Starman music.
+- Tails' energy bar now more visibly shows flight drain.
+- Fixed Mario being able to activate his old dropkick spin.
+- Tweaked Mario's physics to have more midair control.
+- Nerfed Mario's running speed by 0.5
+- Mario and Somari's wall kicks stop being stale on contact with water.
+- Somari now swims by default when double jumping in water.
+  - You can use the normal double jump with Up + A if you haven't started swimming yet.
+- Somari's spinjump now protects from Piranha Plants and Spinies.
+- Fixed Luigi also trying to activate Mario's old dropkick spin and failing to do so.
+- Luigi can no longer wall jump underwater.
+- Luigi's fireball sound effects no longer cause errors.
+- Buffed Luigi's running speed.
+- Nerfed Wario's swimming.
+- Various minimal Yoshi code improvements.
+- Updated Yoshi's movelist because it was completely wrong.
+- Yoshi can now only wall cling while the B button is held
+- Fluttering as Yoshi now makes you stop crouching.
+- Completely reworked Amy's moveset.
+- Fang's custom hud and energy bare are now affected by gamemanager's "hud_alpha" variable.
+- Fang can now only ramp when sliding at or above 9/10ths of his max speed.
+- Fang's slide is now a bit better on slopes.
+- Fang's bounce now bumps blocks.
+- Fang now stomps and bounces off of enemies instead of exploding them.
+- Fang's cork gun reloads 1.5x faster.
+- Shooting Fang's cork gun no longer resets partially loaded corks.
+- Fang's reload bar now uses the partial-charge visuals to indicate the cooldown.
+- Added unused cork shot vfx on Fang's energy bar.
+- Fang can ramp slopes while sliding.
+- Fang's skip now has a 16 pixel window next to the wall he's facing where skip energy won't be used.
+- Fang regains skip energy if he bounces on an enemy.
+- Fang can no longer bounce on water if he has afterimages.
+- Springs now override Fang's bounce.
+- Fang can now jump and skip out of climbing.
+- Fang's skip energy restores when climbing.
+- Fang can now properly bounce off of monitors.
+- Buffed Fang's slide from a standstill.
+- Fang's custom hud can now be enabled.
+- Fang can no longer skip during the skip's on-contact delay.
+- Fang can now skip off of flagpoles properly.
+- Bowser no longer uses two variables for jumping.
+- Mecha Sonic no longer ramps slopes when spinning.
+- Mecha Sonic can now uncurl by pressing Up while spinning.
+- Mecha Sonic's "taunt" sound no longer plays when entering doors.
+
+[Gameplay Tweaks]
+
+- Banzai Bill explosions are now harmless
+- Shells from stomped enemies no longer despawn off-screen.
+- Fire Bro's fireballs no longer friendly fire other enemies.
+- All characters can now start climbing vines / fences from the ground, exit climbing by climbing back down onto the ground, and climb up through semisolid platforms.
+- Reworked some campaign levels.
+- Nerfed slope influence for all slopes.
+
+[Graphical Tweaks]
+
+- Updated the Gamemaker 8.2 logo on the splash screen.
+- Finished the terrain sheet for the Clockwork, Beach, Castle, Ghooooost House, and Desert biomes. [Contributed by lyb4]
+- Added new animations for Mario, Luigi, Ashura, Wario, and Knuckles. [Contributed by Todadoat]
+- Bowser's roster card is no longer greyscale.
+- The decoration sheet for Factory no longer uses an incorrect magenta color.
+- Updated Ground biome semiground slope graphics.
+- Signpost sides are now a pixel longer and both sides can be modified.
+- Ashura's base skin now has paletting. [Contributed by Todadoat]
+- Fixed transparent pixels in Wario's hat in sprites where he faces the camera.
+
+[Skinning]
+
+- All characters now use the "battlewin", "battlemid", "battlelose", and "battledead" animations on results screens.
+- Many characters now support moving their projectiles, hud, and other graphics' locations on their spritesheets.
+- You can now set the frame count and animation speed of spindash dust.
+- Fixed "bricks explode" world skin setting not rendering bricks.
+- Mario and his jumpalikes now have a "bonkbrick" animation to allow for having a head bonk animation without also implying that he breaks the bricks with his head.
+- Sprites can now set individual box width and height.
+- Added "seperate projectile coords by size" skin setting to allow changing the sprite of projectiles depending on the player's powerup.
+- Added "disable spindust" skin option to characters with spindust before this update.
+- Added "enable spindust" skin option to Tails and Somari, who did not have it until this update.
+- Added "smooth flight bar drain" skin option to Tails.
+- Added "use super sheets" skin option to Super Sonic which allows using the "super1" - "super4" sheets even if paletting is enabled.
+
+[Modding]
+
+- Added Extensions, a new type of mod that persists throughout the entire game.
+- Added Script Blocks, that can run .gml scripts from a "Level Pack Scripts" folder in the current level pack
+- The game now automatically creates the skinning and modding directory structures.
+- Added "redcoinreward", "checkpoint", and "100coin1up" item types to the "itemget" charm section, as well as values for monitor items.
+- Added "nozerounreal" function that works identically to the "unreal" function but treats 0 as an invalid number.
+- Added "bonkbrick" variable for when a character bonks their head on a hittable rather than a ceiling.
+- Added "felljesus" and "felljesus_cruelty" to allow characters to collide with and walk on Lava.
+
+[Level Editor]
+
+- Lemon copy / paste now works between layers.
+- Lemon regions can be triple the length horizontally compared to 2.1.5.2.
+  - You can't change screen boundaries in the added space though. Never got around to fixing that.
+- Many fill tool fixes.
+  - Semisolids and Background tiles can no longer be stacked with fill rectangle.
+  - Flood fill no longer accounts for all object layers at once
+  - Fill rectangle being very slow
+  - Flood fill being broken for water
+  - Removed flood erase from fill bucket.
+- Added a "custom" option to the music picker, which allows for using music not tied to a biome by inputting its filename.
+- Added "Time of Day" option. This only affects the ground biome in the base world skin and the night background is just underground again but. It's there
+- Removed the object limit.
+- Optimized lemon grass checks
+- Single Cheep Cheep types now show different sprites in Lemon.
+- The Spiny single shell now shows its sprite in Lemon..
+
+
+
+[Engine Technology / Other Changes]
+
+- Optimized all technical objects
+- Charm .gml files are now cached into a more efficient "cache file" when first loaded which significantly reduces load times on subsequent launches of the game.
+- The "unlock" section of charms no longer runs if the charm is disabled.
+- Enabling a charm in the mod loader runs the unlock code now.
+- The Mod Loader now categorizes mods by types.
+- The player's animation now updates while flashing.
+- The "showfps" command now shows your uncapped fps.
+- Changed how the Lemon Editor's layers are drawn.
+- Lemon Editor object containers now use the same sprite system.
+- Modified the game's DirectX9 check.
+  - This should mostly be irrelevant as the Gamemaker 8.2 version used to compile the game, and the game itself, come with the DirectX9 dll bundled in.
+- Roster buttons for locked characters no longer draw the character card colored completely black underneath the lock icon.
+- Level skins now continue to load if they contain a "music" or "sfx" folder but no biome folders.
+- Player skin loading no longer tries to load 1.9 "macguffins.png" spritesheet.
+- W.I.P systext renderer optimization. You can tell it's W.I.P because it breaks some of the text.
+- Removed obsolete 1.9 debug savestate key check that did nothing because the savestate code was moved somewhere else.
+- Pressing the F8 key while an error is displayed will attempt to pause the game.
+- Retrying a stage while playtesting in Lemon no longer costs a life.
+- Hittables no longer get their region twice at the start of levels.
+- Players now properly flip when grabbing onto a flagpole.
+- Nerfed waterrunning grace period to 16 frames. (From 30)
+
+
+[ULTRA SECRETS]
+- Added the Beetroot and Green Jumping Lui powerups from Mario Forever as top secret easter eggs and then never put them into any levels. Lol.
+  
+  - These items do not show up in the game until the "topsecret" setting is set to 1 with the console ('settings("topsecret",1)')
+  - Charms can use the "-beet" and "-lui" sheets for these items, or use the "size reroute beet" and "size reroute lui" skin settings.
+  - These powerups use sizes 6 and 7. Super Sonic now uses sizes 8, 9, 10, and 11.
+  - The Green Jumping Lui powerup can be set to jump up and down when placed on the ground in a level.
+  - "itern.png" sheet added to the base world skin that contains the Beetroot and Green Jumping Lui powerup sprites.
+  - Beetroot projectile code is located in "projectile"'s 10th user event.
+  - Green Jumping Lui effect is implemented for Sonic, Tails, Knuckles, Mario, Luigi, Wario, Stanley, and partially for The Kid.
+  - Beetroot is implemented for Sonic, Tails, Knuckles, Mario, Luigi, and Ashura.
