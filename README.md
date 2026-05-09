@@ -4,11 +4,11 @@ Boll Deluxe is a crossover fangame featuring Super Mario and Sonic the Hedgehog 
 
 This game includes:
 
--12+ playable characters: Sonic, Super Sonic, Tails, Knuckles, Mecha Sonic, Ashura, Mario, Luigi, Wario, Somari, The Kid, and Giana
+-16+ playable characters: Sonic, Super Sonic, Tails, Knuckles, Mecha Sonic, Ashura, Mario, Luigi, Wario, Somari, and more!
 
 -Multiplayer battle mode (featuring kneecapped FPS thanks to Gamemaker 8)
 
--32 remixed levels
+-Over 32 remixed levels
 
 -Special Stages
 
