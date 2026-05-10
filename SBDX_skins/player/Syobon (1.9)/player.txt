@@ -1,7 +1,7 @@
 [kid]
-name=X
+name=Syobon
 
-icon speed=6
+icon speed=9
 icon loop=yes
 animation speed=1.0
 center x=15
@@ -18,7 +18,7 @@ bow lag=yes
 victory duration=50
 time until wait=200
 pipe squish=20
-mario death=false
+mario death=true
 death animation=true
 size reroute beet=big
 size reroute lui=big
@@ -27,7 +27,7 @@ size reroute lui=big
 custom sprite list=stand,wall,standfire,wallfire,walk,walkfire,jump,fall,jumpfire,fallfire,bow,dash,pose,dashfire,posefire,lookup,lookupfire,climbing,flagslide,dead
 
 use paletting=true
-defaultspray 1=2
+defaultspray 1=0
 defaultspray 2=0
 defaultspray 3=0
 defaultspray 4=0
@@ -47,6 +47,7 @@ connect standfire=true
 connect wallfire=true
 connect dashfire=true
 connect dash=true
+connect dead=true
 
 reroute wait=stand
 reroute standcarry=stand
@@ -96,11 +97,11 @@ fall loop=2
 bonk loop=2
 pose loop=8
 
-stand speed=0.06
+stand speed=0.2
 wait speed=0.2
 lookup speed=0.2
 pose speed=0.3
-walk speed=0.2zx
+walk speed=0.5
 jump speed=0.25
 bonk speed=0.25
 fall speed=0.25
@@ -120,7 +121,7 @@ fallcarry loop=2
 bonkcarry loop=2
 
 standcarry speed=0.2
-walkcarry speed=0.2
+walkcarry speed=0.5
 jumpcarry speed=0.25
 bonkcarry speed=0.25
 fallcarry speed=0.25
@@ -142,7 +143,7 @@ bonkfire loop=2
 
 standfire speed=0.2
 lookupfire speed=0.2
-walkfire speed=0.2
+walkfire speed=0.5
 jumpfire speed=0.25
 bonkfire speed=0.25
 fallfire speed=0.25
@@ -169,18 +170,18 @@ run frames=9
 run speed=0.35
 run loop=5
 
-boll top=#F0F0F0
-boll mid=#0040F0
-boll bot=#0C0C0C
+boll top=#E00808
+boll mid=#000000
+boll bot=#006EEE
 
 
 [lang]
-winspecial=X got a Chaos Emerald
-allspecial=X got all Chaos Emeralds
-princess=Zero
-savetext1=Zero has been
-savetext2=successfully rescued.
-savetext3=Now peace can be
-savetext4=more well maintained.
-savetext5=
-savetext6=
+winspecial=Syobon got a Chaos Emerald
+allspecial=Syobon got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Syobon
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
