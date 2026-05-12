@@ -56,7 +56,7 @@ if (canfire && x>vx+464 && x<vx+1000) {count+=1 if (count>180) {count=0
 
 if (!inview() && !startinview() && !panic) {y=ystart x=xstart jump=0 dir=0 cjump=60 step=3 alarm[0]=60 speed=0 exit}
 
-if (music && !musiclock) {
+if (music && !musiclock && (global.music!="boss" || btype) && global.music!="finalboss" && global.music!="finaldoss") {
     if (skindat("bossmusic")) {
         switch btype {
             case 2:
@@ -81,8 +81,8 @@ if (music && !musiclock) {
 flash=max(0,flash-1)
 if (hp<=0 && !dead) {
     dead=1
-    with (instance_create(x,y,deadfakebowser)) {xsc=other.xsc kil=1 sheet=other.sheet}
-    if (!btype) sound("enemybowserdown") else {sound("finalbowserfall") sound("finalbowserdie", 0, 1 - (dowser * 0.165))}
+    with (instance_create(x,y,deadfakebowser)) {xsc=other.xsc kil=1 sheet=other.sheet btype=other.btype}
+    if (!btype) sound("enemybowserdown") else {sound("finalbowserfall")}
     if (owner) {global.scor[owner.p2]+=5000 owner.enemyc+=10 if (musiclock&&!global.finishmusic) {if !btype stagemusic(owner) else mus_stop()}}
     instance_destroy()
 }
@@ -148,7 +148,7 @@ if (coll && vspeed>=0 && !dead) {
         depth=1000004
         hsp=0
         panic=1
-        if (!btype) sound("enemybowserdown") else {sound("finalbowserfall") sound("finalbowserdie", 0, 1 - (dowser * 0.165))}
+        if (!btype) sound("enemybowserdown") else {sound("finalbowserfall")}
         global.scor[o.p2]+=5000
         o.enemyc+=10
     } else {
@@ -161,7 +161,7 @@ if (!dead && pitdeath()) {
     dead=1
     depth=1000004
     panic=1
-    if (!btype) sound("enemybowserdown") else {sound("finalbowserfall") sound("finalbowserdie", 0, 1 - (dowser * 0.165))}
+    if (!btype) sound("enemybowserdown") else {sound("finalbowserfall")}
     global.scor[o.p2]+=5000
     o.enemyc+=10
 }
@@ -171,7 +171,7 @@ if (dead && !stopmus && btype) {mus_stop() stopmus=1}
 if (dead) {bbb+=1 if (bbb=32) flash=32 if (bbb=64) {
     with (firemissile) if (owner=other.id) instance_destroy()
     with (hammer) if (owner=other.id) instance_destroy()
-    if (musiclock&&!global.finishmusic && !btype) stagemusic(o)
+    if (musiclock&&!global.finishmusic) {if !btype stagemusic(o) else sound("finalbowserdie", 0, 1 - (dowser * 0.165))}
     instance_destroy()
 }}
 

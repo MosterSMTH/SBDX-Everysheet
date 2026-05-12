@@ -7,16 +7,16 @@ applies_to=self
 xsc=-1
 ysc=-1
 gravity=0.075
-frame=1
+panic=1
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-if (!place_meeting(x,y+4,bridgeblock) || kil) gravity=0.075
-
-counter+=1 if (counter=4) {counter=0 frame=!frame}
+if (collision(0,4).object_index != bridgeblock || kil) {gravity=0.075 kil=1}
+if (!inview() && btype) {sound("finalbowserdie", 0, 1 - ((btype - 1) * 0.165)) instance_destroy()}
+step = (step + 0.125) mod 2
 #define Collision_collider
 /*"/*'/**//* YYD ACTION
 lib_id=1
