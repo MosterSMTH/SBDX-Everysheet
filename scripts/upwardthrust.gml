@@ -27,7 +27,7 @@ if (go=1) {
 
 image_yscale=0.5
 coll=instance_place(x,y+yoff,player)
-if (coll && coll!=owner && coll.pvp_avoid=0) with (coll) {if (!hurt && !flash && !piped && power_lv<2) fragplayer(other.owner)}
+if (coll && coll!=owner && coll.pvp_avoid=0 && (!owner || (coll.owner != owner))) with (coll) {if (!hurt && !flash && !piped && power_lv<2) fragplayer(other.owner)}
 
 coll=instance_place(x,y+yoff,item)
 if (coll) if (coll.c && (coll.object_index=mushroom || coll.object_index=lifemush || coll.object_index=mushpoison || coll.object_index=starman)) if (!coll.getimer) {coll.vspeed=2.5*go coll.c=1 coll.drop=0 coll.hspeed=esign(coll.x-(x+8),1)}
