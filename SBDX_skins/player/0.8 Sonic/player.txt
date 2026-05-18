@@ -69,6 +69,9 @@ climbing frames=2
 flagslide frames=1
 handlegrab frames=2
 
+size reroute lui=lui
+size reroute beet=beet
+
 walk speed=0.5
 run speed=0.25
 jump speed=0.2
