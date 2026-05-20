@@ -14,6 +14,15 @@ pole center offset=8
 fire duration=8
 victory duration=30
 
+max sizes=7
+use paletting=true
+defaultspray 1=5
+defaultspray 2=7
+defaultspray 3=12
+defaultspray 4=9
+
+size reroute mini=big
+
 custom sprite list=stand,wait,lookup,pose,crouch,knockstand,knockrun,deadair,run,turn,fly,jump,ball,dead,claw,armless,armlessalt,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
 
 reroute prerun=run
@@ -86,6 +95,7 @@ boll mid=#000000
 boll bot=#F0D818
 
 [lang]
+credits=Emília, Christian32307
 winspecial=Gamma got a Chaos Emerald
 allspecial=Gamma got all Chaos Emeralds
 princess=our Princess

@@ -84,8 +84,14 @@ if (pf3) {
     if ybut global.pal_3[b2]=(global.pal_3[b2]+1) mod playerskindat(b2,"totpal"+string(b2))
     if zbut global.pal_4[b2]=(global.pal_4[b2]+1) mod playerskindat(b2,"totpal"+string(b2))
 
+    if rbut {
+        global.pal_1[mybox.p2]=(playerskindat(mybox.p2,"defaultpal1"+string(mybox.p2)))
+        global.pal_2[mybox.p2]=(playerskindat(mybox.p2,"defaultpal2"+string(mybox.p2)))
+        global.pal_3[mybox.p2]=(playerskindat(mybox.p2,"defaultpal3"+string(mybox.p2)))
+        global.pal_4[mybox.p2]=(playerskindat(mybox.p2,"defaultpal4"+string(mybox.p2)))
+    }
 
-    if (cbut || xbut || ybut || zbut) {
+    if (cbut || xbut || ybut || zbut || rbut) {
         var sprayloop, mydat;
         sprayloop=2
         repeat (3) {

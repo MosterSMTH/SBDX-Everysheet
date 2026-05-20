@@ -165,7 +165,8 @@ applies_to=self
 //for whatever reason i can put this in the create code in 2.1.5.2 but not in plus? oh well.
 
 for (i=0;i<global.mplay;i+=1) {
-    str[i]=playerskinstr(i,"credits"+string(i))
+    str[i]=string(playerskindat(i,"credits"+string(i)))
+    if str[i]=="0" {str[i]=""}
 
     if !firstrun[i] firstrun[i]=instance_create(x,y,lemon_tile) // when im a convenient completely null object! this is copied from the battle results in case you couldnt tell lol
     with firstrun[i] {

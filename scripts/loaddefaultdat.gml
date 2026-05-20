@@ -64,7 +64,7 @@ name=argument[1]
     playerskinstr(slot,"savetext4"+ss,"A Textless Hero, Too")
     playerskinstr(slot,"savetext5"+ss,"This Ends Your Trip")
     playerskinstr(slot,"savetext6"+ss,"Of a Long Friendship")
-    playerskinstr(slot,"credits"+ss,"")
+    playerskindat(slot,"credits"+ss,"")
 
 
     //Teh adiwah situation is unfixable, the skins must contain all possible data they can have for their animations.
