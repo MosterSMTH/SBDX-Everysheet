@@ -1,3 +1,8 @@
+## This branch only exists so I don't have to commit all of my unstable unfinished changes to main LOL
+
+
+Original Readme:
+
 # Sonic Boll Deluxe (OE)
 
 Boll Deluxe is a crossover fangame featuring Super Mario and Sonic the Hedgehog characters, with an emphasis on modding and customization.
