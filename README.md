@@ -1,4 +1,4 @@
-## This branch only exists so I don't have to commit all of my unstable unfinished changes to main LOL
+## This fork only exists so I don't have to commit all of my unstable unfinished changes to main LOL
 
 
 Original Readme:
