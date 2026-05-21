@@ -3,8 +3,8 @@
 
 if (!inview()) exit
 
-var frox,froy, frx,fry, fr,ffr4,fr88, xsc,ysc,w,h,sheet;
-frox=-2 froy=4 frx=0 fry=0 w=1 h=1 xsc=1 ysc=1
+var frox,froy, frx,fry, fr,ffr4,fr88, xsc,ysc,w,h,sheet lx, ly;
+frox=-2 froy=4 frx=0 fry=0 w=1 h=1 xsc=1 ysc=1 lx=1360 ly=200
 sheet=global.monitorsheet[biome]
 if (object_index=monamie) fr=3
 else fr=global.frame8
@@ -53,7 +53,7 @@ switch (argument[0]) {
         frx=1
         fry=2
     break}
-    case "mini": { //toilet paper monitor../.
+    case "mini": {
         frx=1
         fry=3
     break}
@@ -61,19 +61,28 @@ switch (argument[0]) {
         frx=1
         fry=4
     break}
-    case "custom": {
-        frx=0
-        fry=6
-    break}
-
-    default:
-    case "":
     case "time": {
         frx=1
         fry=5
     break}
 
+    case "btroot": {
+        frx=2
+        fry=0
+    break}
+    case "glui": {
+        frx=2
+        fry=1
+    break}
+
+    default:
+    case "":
+    case "custom": {
+        frx=1
+        fry=6
+    break}
+
 }
 
-draw_sprite_part_ext(sheet,1,frx*84+8+fr*21,fry*25+8,w*20,h*24,floor(x+5-8-frox*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)
+draw_sprite_part_ext(sheet,1,lx+frx*84+8+fr*21,ly+fry*25+8,w*20,h*24,floor(x+5-8-frox*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)
 if argument[0]="thenewitems" draw_sprite(spr_trollitor,0,floor(x+5-8-frox*xsc),floor(y-froy*ysc)+dy)
