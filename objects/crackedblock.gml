@@ -20,89 +20,91 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var bx,by,sheet;
+var bx,by,sheet,lx;
 
 bx=x mod 32
 by=y mod 32
 if !dontrender
 {
-sheet=global.masterterrain[biome]
+sheet=global.everysheet[biome]
 terraintile=1
+
+lx = 0; //ALTGROUND: CHANGE lx TO 1368
 
 //It's like calculators/numpad 1 is bottomleft 2 is bottommid 3 is bottomright....
 
-if (c1 && c2 && c3 && c4 && c6 && c7 && c8 && c9) {/*middle fill*/ tile=tile_dyn(sheet,360+bx,104+by,16,16,x,y,999998)}
-else if (!c8 && !c4 && !c6 && !c2) {/*lone tile*/ tile=tile_dyn(sheet,416,160,32,32,x-8,y-8,999998)}
+if (c1 && c2 && c3 && c4 && c6 && c7 && c8 && c9) {/*middle fill*/ lx = 1824; tile_bake(sheet,lx + 32+bx,408+by,16,16,x,y,999998)}
+else if (!c8 && !c4 && !c6 && !c2) {/*lone tile*/ lx = 1824; tile_bake(sheet,lx + 88,480,32,32,x-8,y-8,999998)}
 else if (!c8 && !c2) {
-    if (!c4) {/*platform left*/ tile=tile_dyn(sheet,336,160,24,32,x-8,y-8,999998)}
-    else if (!c6) {/*platform right*/ tile=tile_dyn(sheet,360,160,24,32,x,y-8,999998)}
-    else {/*platform middle*/ tile=tile_dyn(sheet,360+bx,160,16,32,x,y-8,999998)}
+    if (!c4) {/*platform left*/ lx = 1824; tile_bake(sheet,lx + 8,480,24,32,x-8,y-8,999998)}
+    else if (!c6) {/*platform right*/ lx = 1824; tile_bake(sheet,lx + 64,480,24,32,x,y-8,999998)}
+    else {/*platform middle*/ lx = 1824; tile_bake(sheet,lx + 32+bx,480,16,32,x,y-8,999998)}
 } else if (!c4 && !c6) {
-    if (!c8) {/*pole top*/ tile=tile_dyn(sheet,416,80,32,24,x-8,y-8,999998)}
-    else if (!c2) {/*pole bottom*/ tile=tile_dyn(sheet,416,136,32,24,x-8,y,999998)}
-    else {/*pole middle*/ tile=tile_dyn(sheet,416,104+by,32,16,x-8,y,999998)}
+    if (!c8) {/*pole top*/ lx = 1824; tile_bake(sheet,lx + 88,384,32,24,x-8,y-8,999998)}
+    else if (!c2) {/*pole bottom*/ lx = 1824; tile_bake(sheet,lx + 88,440,32,24,x-8,y,999998)}
+    else {/*pole middle*/ lx = 1824; tile_bake(sheet,lx + 88,408+by,32,16,x-8,y,999998)}
 } else {
     if (!c4) {
         if (!c8) {
             if (!c3) {
-                /*slim corner top left*/tile=tile_dyn(sheet,336,80,24,24,x-8,y-8,999998)
+                /*slim corner top left*/tile_bake(sheet,lx + 168,384,24,24,x-8,y-8,999998)
             } else 
-            {/*corner top left*/ tile=tile_dyn(sheet,336,80,24,24,x-8,y-8,999998)}
+            {/*corner top left*/ lx = 1824; tile_bake(sheet,lx + 8,384,24,24,x-8,y-8,999998)}
         } else if (!c2) {
-            if (!c9) {/*slim corner bottom left*/tile=tile_dyn(sheet,72,144,24,24,x-8,y,999998)} 
-            else {/*corner bottom left*/ tile=tile_dyn(sheet,336,136,24,24,x-8,y,999998)}
+            if (!c9) {/*slim corner bottom left*/tile_bake(sheet,lx + 168,408,24,24,x-8,y,999998)} 
+            else {/*corner bottom left*/ lx = 1824; tile_bake(sheet,lx + 8,440,24,24,x-8,y,999998)}
         } else {//!4 & 8 & 2 & 6
-            if (!c9 && c3 ) {tile=tile_dyn(sheet,120,80,24,16,x-8,y,999998)}
-            else if (!c3 && c9) {tile=tile_dyn(sheet,120,64,24,16,x-8,y,999998)}
-            else if (!c3 && !c9) {tile=tile_dyn(sheet,184,144,24,16,x-8,y,999998)}
-             else {/*left wall*/ tile=tile_dyn(sheet,336,104+by,24,16,x-8,y,999998)}
+            if (!c9 && c3 ) {tile_bake(sheet,lx + 120,448,24,16,x-8,y,999998)}
+            else if (!c3 && c9) {tile_bake(sheet,lx + 120,432,24,16,x-8,y,999998)}
+            else if (!c3 && !c9) {tile_bake(sheet,lx + 224,488,24,16,x-8,y,999998)}
+             else {/*left wall*/ lx = 1824; tile_bake(sheet,lx + 8,408+by,24,16,x-8,y,999998)}
         }
     } else if (!c6) {
         if (!c8) {
-            if (!c1) {/*slimcorner top right*/ tile=tile_dyn(sheet,96,120,24,24,x,y-8,999998)}
-             else {/*corner top right*/ tile=tile_dyn(sheet,392,80,24,24,x,y-8,999998)}
+            if (!c1) {/*slimcorner top right*/ tile_bake(sheet,lx + 192,384,24,24,x,y-8,999998)}
+             else {/*corner top right*/ lx = 1824; tile_bake(sheet,lx + 64,384,24,24,x,y-8,999998)}
         } else if (!c2) {
-            if (!c7) {/*slimcorner bottom right*/ tile=tile_dyn(sheet,96,144,24,24,x,y,999998)}
-             else {/*corner bottom right*/ tile=tile_dyn(sheet,392,136,24,24,x,y,999998)}
+            if (!c7) {/*slimcorner bottom right*/ tile_bake(sheet,lx + 192,408,24,24,x,y,999998)}
+             else {/*corner bottom right*/ lx = 1824; tile_bake(sheet,lx + 64,440,24,24,x,y,999998)}
         } else {
-            if (!c1 && c7 ) {tile=tile_dyn(sheet,144,64,24,16,x,y,999998)}
-            else if (!c7 && c1) {tile=tile_dyn(sheet,144,80,24,16,x,y,999998)}
-            else if (!c7 && !c1) {tile=tile_dyn(sheet,208,144,24,16,x,y,999998)}
-            else {/*right wall*/ tile=tile_dyn(sheet,392,104+by,24,16,x,y,999998)}
+            if (!c1 && c7 ) {tile_bake(sheet,lx + 144,432,24,16,x,y,999998)}
+            else if (!c7 && c1) {tile_bake(sheet,lx + 144,448,24,16,x,y,999998)}
+            else if (!c7 && !c1) {tile_bake(sheet,lx + 248,488,24,16,x,y,999998)}
+            else {/*right wall*/ lx = 1824; tile_bake(sheet,lx + 64,408+by,24,16,x,y,999998)}
         }
     } else { // 6 && 4 
         if (!c8) {// !8 && 6 && 4 
-            if (c1 && !c3) {tile=tile_dyn(sheet,128,8,16,24,x,y-8,999998)}
-            else if (c3 && !c1 ){tile=tile_dyn(sheet,144,8,16,24,x,y-8,999998) } 
-            else if(!c3 && !c1) {tile=tile_dyn(sheet,192,104,16,24,x,y-8,999998)} 
-            else {/*floor*/ tile=tile_dyn(sheet,360+bx,80,16,24,x,y-8,999998)}
+            if (c1 && !c3) {tile_bake(sheet,lx + 128,384,16,24,x,y-8,999998)}
+            else if (c3 && !c1 ){tile_bake(sheet,lx + 144,384,16,24,x,y-8,999998) } 
+            else if(!c3 && !c1) {tile_bake(sheet,lx + 232,440,16,24,x,y-8,999998)} 
+            else {/*floor*/ lx = 1824; tile_bake(sheet,lx + 32+bx,384,16,24,x,y-8,999998)}
         } else if (!c2) { //8
-            if (c7 && !c9) {tile=tile_dyn(sheet,128,32,16,24,x,y,999998)}
-            else if (c7 && !c9 ){tile=tile_dyn(sheet,144,32,16,24,x,y,999998) } 
-            else if(!c7 && !c9) {tile=tile_dyn(sheet,208,112,16,24,x,y,999998)}  
-            else {/*ceiling*/ tile=tile_dyn(sheet,360+bx,136,16,24,x,y,999998)}
+            if (c7 && !c9) {tile_bake(sheet,lx + 128,408,16,24,x,y,999998)}
+            else if(!c7 && c9){tile_bake(sheet,lx + 144,408,16,24,x,y,999998) } 
+            else if(!c7 && !c9) {tile_bake(sheet,lx + 248,448,16,24,x,y,999998)}  
+            else {/*ceiling*/ lx = 1824; tile_bake(sheet,lx + 32+bx,440,16,24,x,y,999998)}
         } else { // 8 & 2 & 6 & 4
             if (c7+c9+c1+c3!=3) {
                 if (c7+c9+c1+c3!=2){
                     if (c7+c9+c1+c3!=1){
-                        tile=tile_dyn(sheet,144,128,16,16,x,y,999998)
+                        tile_bake(sheet,lx + 240,408,16,16,x,y,999998)
                     }
-                    else if (!c7 && !c9 && !c1){tile=tile_dyn(sheet,176,64,16,16,x,y,999998)}
-                    else if (!c7 && !c3 && !c1){tile=tile_dyn(sheet,176,80,16,16,x,y,999998)}
-                    else if (!c7 && !c9 && !c3){tile=tile_dyn(sheet,192,64,16,16,x,y,999998)}
-                    else if (!c9 && !c3 && !c1){tile=tile_dyn(sheet,192,80,16,16,x,y,999998)}
+                    else if (!c7 && !c9 && !c1){tile_bake(sheet,lx + 176,472,16,16,x,y,999998)}
+                    else if (!c7 && !c3 && !c1){tile_bake(sheet,lx + 176,488,16,16,x,y,999998)}
+                    else if (!c7 && !c9 && !c3){tile_bake(sheet,lx + 192,472,16,16,x,y,999998)}
+                    else if (!c9 && !c3 && !c1){tile_bake(sheet,lx + 192,488,16,16,x,y,999998)}
                 }
-                else if (!c7 && !c9)/*everyone except these two*/{tile=tile_dyn(sheet,144,144,16,16,x,y,999998)}
-                else if (!c7 && !c1){tile=tile_dyn(sheet,160,128,16,16,x,y,999998)}
-                else if (!c7 && !c3){tile=tile_dyn(sheet,32,144,16,16,x,y,999998)}
-                else if (!c9 && !c1){tile=tile_dyn(sheet,48,144,16,16,x,y,999998)}
-                else if (!c9 && !c3){tile=tile_dyn(sheet,128,128,16,16,x,y,999998)} 
-                else if (!c1 && !c3){tile=tile_dyn(sheet,144,112,16,16,x,y,999998)}                                           
+                else if (!c7 && !c9)/*everyone except these two*/{tile_bake(sheet,lx + 240,424,16,16,x,y,999998)}
+                else if (!c7 && !c1){tile_bake(sheet,lx + 256,408,16,16,x,y,999998)}
+                else if (!c7 && !c3){tile_bake(sheet,lx + 128,472,16,16,x,y,999998)}
+                else if (!c9 && !c1){tile_bake(sheet,lx + 144,472,16,16,x,y,999998)}
+                else if (!c9 && !c3){tile_bake(sheet,lx + 224,408,16,16,x,y,999998)} 
+                else if (!c1 && !c3){tile_bake(sheet,lx + 240,392,16,16,x,y,999998)}                                           
             }
-            else if (!c7) {/*inner corner top left*/ tile=tile_dyn(sheet,192,32,16,16,x,y,999998)}
-            else if (!c9) {/*inner corner top right*/ tile=tile_dyn(sheet,176,32,16,16,x,y,999998)}
-            else if (!c1) {/*inner corner bottom left*/ tile=tile_dyn(sheet,192,16,16,16,x,y,999998)}
-            else if (!c3) {/*inner corner bottom right*/ tile=tile_dyn(sheet,176,16,16,16,x,y,999998)}
+            else if (!c7) {/*inner corner top left*/ tile_bake(sheet,lx + 192,448,16,16,x,y,999998)}
+            else if (!c9) {/*inner corner top right*/ tile_bake(sheet,lx + 176,448,16,16,x,y,999998)}
+            else if (!c1) {/*inner corner bottom left*/ tile_bake(sheet,lx + 192,432,16,16,x,y,999998)}
+            else if (!c3) {/*inner corner bottom right*/ tile_bake(sheet,lx + 176,432,16,16,x,y,999998)}
         }
         
         

@@ -27,7 +27,9 @@ applies_to=self
 */
 if (norender) exit;
 
-if c2 && superc2 draw_background_part_ext(global.masterterrain[biome],256,224,16,16,x,y+16,1,1,$FFFFFF,1)
-else if c2 && !superc2 draw_background_part_ext(global.masterterrain[biome],368,232,16,24,x,y+16,1,1,$FFFFFF,1)
+lx = 456;
 
-draw_background_part_ext(global.masterterrain[biome],256,192,16,32,x,y-16,1,1,$FFFFFF,1)
+if c2 && superc2 draw_background_part_ext(global.everysheet[biome],lx + 296,416,16,16,x,y+16,1,1,$FFFFFF,1)
+else if c2 && !superc2 draw_background_part_ext(global.everysheet[biome],lx + 296,440,16,24,x,y+16,1,1,$FFFFFF,1)
+
+draw_background_part_ext(global.everysheet[biome],lx + 296,384,16,32,x,y-16,1,1,$FFFFFF,1)

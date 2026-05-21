@@ -4,7 +4,7 @@
 var spr,spro,name,i;
 
 if (current_time>global.loadtime+64) loadtext()
-
+show_debug_message("load "+argument[1])
 name="tex_"+argument[1]+string(argument[0])       
 if !(file_exists(argument[2])){
     for (i=0;i<global.biomes;i+=1) {

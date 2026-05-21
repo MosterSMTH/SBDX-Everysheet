@@ -6,12 +6,70 @@ loadspec=0
 if (argument_count >= 2) loadspec=argument[1]
 // kelloggs was here
 
+var tim, _defaultsprites; tim=current_time
+
 for (i=0;i<global.biomes;i+=1) {
     if (loadspec != -1) {
         if (loadspec && !(loadspec & (1 << i))) // skip if loadspec says this biome isn't needed
             continue
     }
     
+    if (true) { // EVERYTHING SHEET (uses a different name to easily see if somethings updated)
+        fn=wskin+global.biome[i]+"\sprites.png"
+        if (file_exists(fn)) background_replace(global.everysheet[i],fn,1,0)
+        else if file_exists(wskin+"\sprites.png") background_replace(global.everysheet[i],wskin+"\sprites.png",1,0)
+
+        skindat("tex_everysheet"+string(i),global.everysheet[i])
+        skindat("tex_everysheet"+string(i)+"_filename",fn)
+                
+                // i NEED The Backgrounds Update
+                
+        var j;
+        repeat (9) {     
+            cleananimbg(global.biome[i],wskin,"daysky",j)
+            cleananimbg(global.biome[i],wskin,"eveningsky",j)
+            cleananimbg(global.biome[i],wskin,"nightsky",j)
+            cleananimbg(global.biome[i],wskin,"daytrans",j)
+            cleananimbg(global.biome[i],wskin,"eveningtrans",j)
+            cleananimbg(global.biome[i],wskin,"nighttrans",j)
+            j+=1;
+        }
+ 
+        replaceanimbg(global.biome[i],wskin,"sky")
+        
+        replaceanimbg(global.biome[i],wskin,"daysky")
+        replaceanimbg(global.biome[i],wskin,"eveningsky")
+        replaceanimbg(global.biome[i],wskin,"nightsky")
+        
+        replaceanimbg(global.biome[i],wskin,"trans")
+        
+        replaceanimbg(global.biome[i],wskin,"daytrans")
+        replaceanimbg(global.biome[i],wskin,"eveningtrans")
+        replaceanimbg(global.biome[i],wskin,"nighttrans")
+        
+        replaceanimbg(global.biome[i],wskin,"below")
+        replaceanimbg(global.biome[i],wskin,"water")
+        
+        replacesheet("","enemy_"+string(i),wskin+global.biome[i]+"\enemy.png",330,1824,1) // next up
+        global.enemysheet[i]=skindat("tex_enemy_"+string(i))
+        
+        replacesheet("","enemy2_"+string(i),wskin+global.biome[i]+"\enemy2.png",330,1824,1)
+        global.enemysheet2[i]=skindat("tex_enemy2_"+string(i))
+        replacesheet("","boss"+string(i),wskin+global.biome[i]+"\boss.png",500,500,1)
+        global.bosssheet[i]=skindat("tex_boss"+string(i))
+        replacesheet("","bowser"+string(i),wskin+global.biome[i]+"\bowser.png",500,500,1)
+        global.bowsersheet[i]=skindat("tex_bowser"+string(i))
+        replacesheet("","dowser"+string(i),wskin+global.biome[i]+"\dowser.png",500,500,1)
+        global.dowsersheet[i]=skindat("tex_dowser"+string(i))
+        replacesheet("","effects"+string(i),wskin+global.biome[i]+"\effects.png",215,315,1)
+        global.effectssheet[i]=skindat("tex_effects"+string(i))  
+    
+    
+        continue;
+    }
+
+
+
     global.useterrainpng=1
     fn=wskin+global.biome[i]+"\tiles-new.png"
     if (file_exists(fn)) background_replace(global.master[i],fn,1,0)
@@ -79,6 +137,7 @@ for (i=0;i<global.biomes;i+=1) {
     replacesheet("","monitor"+string(i),wskin+global.biome[i]+"\monitor.png",144,184,1)  
     global.monitorsheet[i]=skindat("tex_monitor"+string(i))
 }
+
 
 replaceanimbg("special",wskin,"sky")
 replacehud(global.wbase)
@@ -171,5 +230,4 @@ for (i=0;i<global.enemysprites2;i+=1) {
     global.enemysprite2[i,2]=median(0,unreal(skindat("enemy2 "+global.enemysprite2[i,0]+" speed"),0.125),1)
     global.enemysprite2[i,3]=median(1,unreal(skindat("enemy2 "+global.enemysprite2[i,0]+" loop"),1),global.enemysprite2[i,1])-1
 }
-
-replaceworldsfx(wskin)
+replaceworldsfx(wskin) show_debug_message(current_time - tim)

@@ -102,7 +102,7 @@ if (global.lemontest) {
 } else {
     draw_clear_alpha(0,1)
     applyworldskin(global.wskins[1,0])
-    applyplayerskin(global.pbase,0,"all",0)
+    //applyplayerskin(global.pbase,0,"all",0)
     editnew(2)
 }
 #define Other_3

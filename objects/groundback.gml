@@ -19,90 +19,92 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+var bx,by,sheet,lx,depth1;
+
 bx=x mod 32
 by=y mod 32
-depth1 = 1000006
-
-if !dontrender{
-sheet=global.masterterrain[biome]
+if !dontrender
+{
+sheet=global.everysheet[biome]
 terraintile=1
-//---------------------------------------------------------------V Man Shut the Fuck up...
-//---------------------------------------------------------V   MID MID MID MID
+
+lx = 912; depth1 = 1000006;
+
 //It's like calculators/numpad 1 is bottomleft 2 is bottommid 3 is bottomright....
 
-if (c1 && c2 && c3 && c4 && c6 && c7 && c8 && c9) {/*middle fill*/ tile_bake(sheet,32+bx,32+by+176*2,16,16,x,y,depth1)}
-else if (!c8 && !c4 && !c6 && !c2) {/*lone tile*/ tile_bake(sheet,88,88+176*2,32,32,x-8,y-8,depth1)}
+if (c1 && c2 && c3 && c4 && c6 && c7 && c8 && c9) {/*middle fill*/ tile_bake(sheet,lx + 32+bx,408+by,16,16,x,y,depth1)}
+else if (!c8 && !c4 && !c6 && !c2) {/*lone tile*/ tile_bake(sheet,lx + 88,480,32,32,x-8,y-8,depth1)}
 else if (!c8 && !c2) {
-    if (!c4) {/*platform left*/ tile_bake(sheet,8,88+176*2,24,32,x-8,y-8,depth1)}
-    else if (!c6) {/*platform right*/ tile_bake(sheet,64,88+176*2,24,32,x,y-8,depth1)}
-    else {/*platform middle*/ tile_bake(sheet,32+bx,88+176*2,16,32,x,y-8,depth1)}
+    if (!c4) {/*platform left*/ tile_bake(sheet,lx + 8,480,24,32,x-8,y-8,depth1)}
+    else if (!c6) {/*platform right*/ tile_bake(sheet,lx + 64,480,24,32,x,y-8,depth1)}
+    else {/*platform middle*/ tile_bake(sheet,lx + 32+bx,480,16,32,x,y-8,depth1)}
 } else if (!c4 && !c6) {
-    if (!c8) {/*pole top*/ tile_bake(sheet,88,8+176*2,32,24,x-8,y-8,depth1)}
-    else if (!c2) {/*pole bottom*/ tile_bake(sheet,88,64+176*2,32,24,x-8,y,depth1)}
-    else {/*pole middle*/ tile_bake(sheet,88,32+by+176*2,32,16,x-8,y,depth1)}
+    if (!c8) {/*pole top*/ tile_bake(sheet,lx + 88,384,32,24,x-8,y-8,depth1)}
+    else if (!c2) {/*pole bottom*/ tile_bake(sheet,lx + 88,440,32,24,x-8,y,depth1)}
+    else {/*pole middle*/ tile_bake(sheet,lx + 88,408+by,32,16,x-8,y,depth1)}
 } else {
     if (!c4) {
         if (!c8) {
             if (!c3) {
-                /*slim corner top left*/tile_bake(sheet,72,120+176*2,24,24,x-8,y-8,depth1)
+                /*slim corner top left*/tile_bake(sheet,lx + 168,384,24,24,x-8,y-8,depth1)
             } else 
-            {/*corner top left*/ tile_bake(sheet,8,8+176*2,24,24,x-8,y-8,depth1)}
+            {/*corner top left*/ tile_bake(sheet,lx + 8,384,24,24,x-8,y-8,depth1)}
         } else if (!c2) {
-            if (!c9) {/*slim corner bottom left*/tile_bake(sheet,72,144+176*2,24,24,x-8,y,depth1)} 
-            else {/*corner bottom left*/ tile_bake(sheet,8,64+176*2,24,24,x-8,y,depth1)}
+            if (!c9) {/*slim corner bottom left*/tile_bake(sheet,lx + 168,408,24,24,x-8,y,depth1)} 
+            else {/*corner bottom left*/ tile_bake(sheet,lx + 8,440,24,24,x-8,y,depth1)}
         } else {//!4 & 8 & 2 & 6
-            if (!c9 && c3 ) {tile_bake(sheet,120,80+176*2,24,16,x-8,y,depth1)}
-            else if (!c3 && c9) {tile_bake(sheet,120,64+176*2,24,16,x-8,y,depth1)}
-            else if (!c3 && !c9) {tile_bake(sheet,184,144+176*2,24,16,x-8,y,depth1)}
-             else {/*left wall*/ tile_bake(sheet,8,32+by+176*2,24,16,x-8,y,depth1)}
+            if (!c9 && c3 ) {tile_bake(sheet,lx + 120,448,24,16,x-8,y,depth1)}
+            else if (!c3 && c9) {tile_bake(sheet,lx + 120,432,24,16,x-8,y,depth1)}
+            else if (!c3 && !c9) {tile_bake(sheet,lx + 224,488,24,16,x-8,y,depth1)}
+             else {/*left wall*/ tile_bake(sheet,lx + 8,408+by,24,16,x-8,y,depth1)}
         }
     } else if (!c6) {
         if (!c8) {
-            if (!c1) {/*slimcorner top right*/ tile_bake(sheet,96,120+176*2,24,24,x,y-8,depth1)}
-             else {/*corner top right*/ tile_bake(sheet,64,8+176*2,24,24,x,y-8,depth1)}
+            if (!c1) {/*slimcorner top right*/ tile_bake(sheet,lx + 192,384,24,24,x,y-8,depth1)}
+             else {/*corner top right*/ tile_bake(sheet,lx + 64,384,24,24,x,y-8,depth1)}
         } else if (!c2) {
-            if (!c7) {/*slimcorner bottom right*/ tile_bake(sheet,96,144+176*2,24,24,x,y,depth1)}
-             else {/*corner bottom right*/ tile_bake(sheet,64,64+176*2,24,24,x,y,depth1)}
+            if (!c7) {/*slimcorner bottom right*/ tile_bake(sheet,lx + 192,408,24,24,x,y,depth1)}
+             else {/*corner bottom right*/ tile_bake(sheet,lx + 64,440,24,24,x,y,depth1)}
         } else {
-            if (!c1 && c7 ) {tile_bake(sheet,144,64+176*2,24,16,x,y,depth1)}
-            else if (!c7 && c1) {tile_bake(sheet,144,80+176*2,24,16,x,y,depth1)}
-            else if (!c7 && !c1) {tile_bake(sheet,208,144+176*2,24,16,x,y,depth1)}
-            else {/*right wall*/ tile_bake(sheet,64,32+by+176*2,24,16,x,y,depth1)}
+            if (!c1 && c7 ) {tile_bake(sheet,lx + 144,432,24,16,x,y,depth1)}
+            else if (!c7 && c1) {tile_bake(sheet,lx + 144,448,24,16,x,y,depth1)}
+            else if (!c7 && !c1) {tile_bake(sheet,lx + 248,488,24,16,x,y,depth1)}
+            else {/*right wall*/ tile_bake(sheet,lx + 64,408+by,24,16,x,y,depth1)}
         }
     } else { // 6 && 4 
         if (!c8) {// !8 && 6 && 4 
-            if (c1 && !c3) {tile_bake(sheet,128,8+176*2,16,24,x,y-8,depth1)}
-            else if (c3 && !c1 ){tile_bake(sheet,144,8+176*2,16,24,x,y-8,depth1) } 
-            else if(!c3 && !c1) {tile_bake(sheet,192,104+176*2,16,24,x,y-8,depth1)} 
-            else {/*floor*/ tile_bake(sheet,32+bx,8+176*2,16,24,x,y-8,depth1)}
+            if (c1 && !c3) {tile_bake(sheet,lx + 128,384,16,24,x,y-8,depth1)}
+            else if (c3 && !c1 ){tile_bake(sheet,lx + 144,384,16,24,x,y-8,depth1) } 
+            else if(!c3 && !c1) {tile_bake(sheet,lx + 232,440,16,24,x,y-8,depth1)} 
+            else {/*floor*/ tile_bake(sheet,lx + 32+bx,384,16,24,x,y-8,depth1)}
         } else if (!c2) { //8
-            if (c7 && !c9) {tile_bake(sheet,128,32+176*2,16,24,x,y,depth1)}
-            else if (c7 && !c9 ){tile_bake(sheet,144,32+176*2,16,24,x,y,depth1) } 
-            else if(!c7 && !c9) {tile_bake(sheet,208,112+176*2,16,24,x,y,depth1)}  
-            else {/*ceiling*/ tile_bake(sheet,32+bx,64+176*2,16,24,x,y,depth1)}
+            if (c7 && !c9) {tile_bake(sheet,lx + 128,408,16,24,x,y,depth1)}
+            else if(!c7 && c9){tile_bake(sheet,lx + 144,408,16,24,x,y,depth1) } 
+            else if(!c7 && !c9) {tile_bake(sheet,lx + 248,448,16,24,x,y,depth1)}  
+            else {/*ceiling*/ tile_bake(sheet,lx + 32+bx,440,16,24,x,y,depth1)}
         } else { // 8 & 2 & 6 & 4
             if (c7+c9+c1+c3!=3) {
                 if (c7+c9+c1+c3!=2){
                     if (c7+c9+c1+c3!=1){
-                        tile_bake(sheet,144,128+176*2,16,16,x,y,depth1)
+                        tile_bake(sheet,lx + 240,408,16,16,x,y,depth1)
                     }
-                    else if (!c7 && !c9 && !c1){tile_bake(sheet,176,64+176*2,16,16,x,y,depth1)}
-                    else if (!c7 && !c3 && !c1){tile_bake(sheet,176,80+176*2,16,16,x,y,depth1)}
-                    else if (!c7 && !c9 && !c3){tile_bake(sheet,192,64+176*2,16,16,x,y,depth1)}
-                    else if (!c9 && !c3 && !c1){tile_bake(sheet,192,80+176*2,16,16,x,y,depth1)}
+                    else if (!c7 && !c9 && !c1){tile_bake(sheet,lx + 176,472,16,16,x,y,depth1)}
+                    else if (!c7 && !c3 && !c1){tile_bake(sheet,lx + 176,488,16,16,x,y,depth1)}
+                    else if (!c7 && !c9 && !c3){tile_bake(sheet,lx + 192,472,16,16,x,y,depth1)}
+                    else if (!c9 && !c3 && !c1){tile_bake(sheet,lx + 192,488,16,16,x,y,depth1)}
                 }
-                else if (!c7 && !c9)/*everyone except these two*/{tile_bake(sheet,144,144+176*2,16,16,x,y,depth1)}
-                else if (!c7 && !c1){tile_bake(sheet,160,128+176*2,16,16,x,y,depth1)}
-                else if (!c7 && !c3){tile_bake(sheet,32,144+176*2,16,16,x,y,depth1)}
-                else if (!c9 && !c1){tile_bake(sheet,48,144+176*2,16,16,x,y,depth1)}
-                else if (!c9 && !c3){tile_bake(sheet,128,128+176*2,16,16,x,y,depth1)} 
-                else if (!c1 && !c3){tile_bake(sheet,144,112+176*2,16,16,x,y,depth1)}                                           
+                else if (!c7 && !c9)/*everyone except these two*/{tile_bake(sheet,lx + 240,424,16,16,x,y,depth1)}
+                else if (!c7 && !c1){tile_bake(sheet,lx + 256,408,16,16,x,y,depth1)}
+                else if (!c7 && !c3){tile_bake(sheet,lx + 128,472,16,16,x,y,depth1)}
+                else if (!c9 && !c1){tile_bake(sheet,lx + 144,472,16,16,x,y,depth1)}
+                else if (!c9 && !c3){tile_bake(sheet,lx + 224,408,16,16,x,y,depth1)} 
+                else if (!c1 && !c3){tile_bake(sheet,lx + 240,392,16,16,x,y,depth1)}                                           
             }
-            else if (!c7) {/*inner corner top left*/ tile_bake(sheet,192,32+176*2,16,16,x,y,depth1)}
-            else if (!c9) {/*inner corner top right*/ tile_bake(sheet,176,32+176*2,16,16,x,y,depth1)}
-            else if (!c1) {/*inner corner bottom left*/ tile_bake(sheet,192,16+176*2,16,16,x,y,depth1)}
-            else if (!c3) {/*inner corner bottom right*/ tile_bake(sheet,176,16+176*2,16,16,x,y,depth1)}
-        }        
+            else if (!c7) {/*inner corner top left*/ tile_bake(sheet,lx + 192,448,16,16,x,y,depth1)}
+            else if (!c9) {/*inner corner top right*/ tile_bake(sheet,lx + 176,448,16,16,x,y,depth1)}
+            else if (!c1) {/*inner corner bottom left*/ tile_bake(sheet,lx + 192,432,16,16,x,y,depth1)}
+            else if (!c3) {/*inner corner bottom right*/ tile_bake(sheet,lx + 176,432,16,16,x,y,depth1)}
+        }
     }
 }
 terraintile=0
