@@ -132,7 +132,7 @@ applies_to=self
 */
 y+=(flyin + (1 * (flyin != 0)))
 
-draw_background_part(global.masterobjects[biome],16+36*global.frame,400+44*passed,36,44,x-7,y-28)
+draw_background_part(global.everysheet[biome],576+36*global.frame,104+44*passed,36,44,x-7,y-28)
 
 if (global.frame8!=prevf && flyin<0) with instance_create(x + 1 + round(((-flyin)*3.2)),y+16-flyin+flyinsparkles,fireworkeff) fast=0.75
 prevf=global.frame8

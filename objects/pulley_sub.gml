@@ -13,7 +13,9 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if length = "0"
+//the main platform already draws you Sit back down.
+
+/*if length = "0"
 {
 ssw_tile("platform")
 }

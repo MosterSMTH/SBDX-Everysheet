@@ -19,7 +19,7 @@ applies_to=self
 */
 getregion(x)
 
-sheet=global.master[biome]
+sheet=global.everysheet[biome]
 
 if (funnytruefalse(jet)) {
     i=instance_create(x-16,y-48,jetstream)

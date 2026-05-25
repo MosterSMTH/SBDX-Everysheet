@@ -19,7 +19,8 @@ action_id=603
 applies_to=self
 */
 getregion(x)
-sheet=global.master[biome]
+
+sheet=global.everysheet[biome]
 
 depth=assetdepth+4-y/7168
 

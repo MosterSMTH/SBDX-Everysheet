@@ -47,7 +47,7 @@ getregion(x)
 
 q=0
 do {
-    tile_bake(global.masterobjects[biome],384,96+q,16,16,x,y,1000000+q/16)
+    tile_bake(global.everysheet[biome],1080,312+q,16,16,x,y,1000000+q/16)
     q=min(32,q+16)
     y+=16
 } until (position_meeting(x+8,y+8,ground) || position_meeting(x+8,y+8,phaser) || (q=32 && position_meeting(x+8,y-24,cannon)) || y>=region.ky+16)

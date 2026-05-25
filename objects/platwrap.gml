@@ -30,6 +30,6 @@ ssw_tile("platform")
 }
 else
 {
-draw_background_part_ext(global.master[biome],320,24,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
-draw_background_part_ext(global.master[biome],352,24,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
+draw_background_part_ext(global.everysheet[biome],304,152,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
+draw_background_part_ext(global.everysheet[biome],336,152,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
 }

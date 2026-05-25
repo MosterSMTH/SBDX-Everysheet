@@ -215,19 +215,19 @@ applies_to=self
 */
 if (issign) {
     //texture_set_interpolation(1)
-    if (angle<90 || angle>270) draw_background_part_ext(global.master[biome],424,40,40,24,x+lengthdir_x(-20,angle),y-8,lengthdir_x(1,angle),1,$ffffff,1)
+    if (angle<90 || angle>270) draw_background_part_ext(global.everysheet[biome],528,192,40,24,x+lengthdir_x(-20,angle),y-8,lengthdir_x(1,angle),1,$ffffff,1)
     else {
         rect(x+lengthdir_x(-20,angle+180),y-8,lengthdir_x(40,angle+180),24,0,1)
         if owner.usepalette scr_applyPaletteSegmented(global.shaderPaletteSwap,global.palettesprites[owner.p2*100],global.pal_1[owner.p2]+1,global.pal_2[owner.p2]+1,global.pal_3[owner.p2]+1,global.pal_4[owner.p2]+1,owner.size,owner.totpal+1)
         draw_sprite_part_ext(owner.sheet,0,owner.signpost_sheetx,owner.signpost_sheety+25,40,24,x+lengthdir_x(-20,angle+180),y-8,lengthdir_x(1,angle+180),1,$ffffff,1)
         shader_reset();
-        draw_background_part_ext(global.master[biome],424,71,40,24,x+lengthdir_x(-20,angle+180),y-8,lengthdir_x(1,angle+180),1,$ffffff,1)
+        draw_background_part_ext(global.everysheet[biome],444,191,40,24,x+lengthdir_x(-20,angle+180),y-8,lengthdir_x(1,angle+180),1,$ffffff,1)
         if owner.usepalette scr_applyPaletteSegmented(global.shaderPaletteSwap,global.palettesprites[owner.p2*100],global.pal_1[owner.p2]+1,global.pal_2[owner.p2]+1,global.pal_3[owner.p2]+1,global.pal_4[owner.p2]+1,owner.size,owner.totpal+1)
         draw_sprite_part_ext(owner.sheet,0,owner.signpost_sheetx,owner.signpost_sheety,40,24,x+lengthdir_x(-20,angle+180),y-8,lengthdir_x(1,angle+180),1,$ffffff,1)
         shader_reset()
     }
-    if (sign(angle)=1) draw_background_part_ext(global.master[biome],420,71,4,24,x+lengthdir_x(-20,angle)+lengthdir_x(-4,angle+90),y-8,lengthdir_x(1,angle+90),1,$ffffff,1)
-    else draw_background_part_ext(global.master[biome],464,71,4,24,x+lengthdir_x(-20,angle+180)+lengthdir_x(-4,angle+270),y-8,lengthdir_x(1,angle+270),1,$ffffff,1)
+    if (sign(angle)=1) draw_background_part_ext(global.everysheet[biome],440,192,4,24,x+lengthdir_x(-20,angle)+lengthdir_x(-4,angle+90),y-8,lengthdir_x(1,angle+90),1,$ffffff,1)
+    else draw_background_part_ext(global.everysheet[biome],484,192,4,24,x+lengthdir_x(-20,angle+180)+lengthdir_x(-4,angle+270),y-8,lengthdir_x(1,angle+270),1,$ffffff,1)
     //texture_set_interpolation(0)
 } else if (!isblock){
     y-=2

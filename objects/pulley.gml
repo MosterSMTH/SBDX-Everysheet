@@ -98,10 +98,10 @@ applies_to=self
 test=16384
 with (pulley_sub) {if (x<other.test && x>other.x) {other.test=x other.sub=id main=other.id}}
 
-sheet=global.master[biome]
+sheet=global.everysheet[biome]
 
-tile_bake(sheet,272,8,16,16,xstart-8,top,999998)
-tile_bake(sheet,304,8,16,16,sub.xstart-8,top,999998)
+tile_bake(sheet,256,104,16,16,xstart-8,top,999998)
+tile_bake(sheet,288,104,16,16,sub.xstart-8,top,999998)
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -110,28 +110,30 @@ applies_to=self
 */
 p=xstart+(sub.yg mod 16)+8
 repeat ((sub.xstart-xstart)/16-2) {
-    draw_background_part(sheet,288,8,16,16,p,top)
+    draw_background_part(sheet,272,104,16,16,p,top)
     p+=16
 }
 
-draw_background_part(sheet,288+16-(sub.yg mod 16),8,(sub.yg mod 16),16,xstart+8,top)
-draw_background_part(sheet,288,8,16-(sub.yg mod 16),16,p,top)
+//am i going mad? or does the game actually just draw the horizontal string 2 more times? why?
+
+//draw_background_part(sheet,272+16-(sub.yg mod 16),104,(sub.yg mod 16),16,xstart+8,top)
+//draw_background_part(sheet,272,104,16-(sub.yg mod 16),16,p,top)
 
 p=yg-16
 repeat ((yg-top-24)/16) {
-    draw_background_part(sheet,304,24,16,16,xstart-8,p)
+    draw_background_part(sheet,288,120,16,16,xstart-8,p)
     p-=16
 }
 
-draw_background_part(sheet,304,24+16-(p-top),16,p-top,xstart-8,top+16)
+draw_background_part(sheet,288,120+16-(p-top),16,p-top,xstart-8,top+16)
 
 p=sub.yg-16
 repeat ((sub.yg-top-24)/16) {
-    draw_background_part(sheet,304,24,16,16,sub.xstart-8,p)
+    draw_background_part(sheet,288,120,16,16,sub.xstart-8,p)
     p-=16
 }
 
-draw_background_part(sheet,304,24+16-(p-top),16,p-top,sub.xstart-8,top+16)
+draw_background_part(sheet,288,120+16-(p-top),16,p-top,sub.xstart-8,top+16)
 
 if (draw) {
     x=xstart
@@ -142,20 +144,20 @@ if (draw) {
     }
     else
     {
-    draw_background_part_ext(global.master[biome],320,8,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
-    draw_background_part_ext(global.master[biome],352,8,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
+    draw_background_part_ext(sheet,304,136,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
+    draw_background_part_ext(sheet,336,136,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
     }
     with (sub) {
-if length = "0"
-{
-ssw_tile("platform")
-}
-else
-{
-draw_background_part_ext(global.master[biome],320,8,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
-draw_background_part_ext(global.master[biome],352,8,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
-}
-}
+        if length = "0"
+        {
+            ssw_tile("platform")
+        }
+            else
+        {
+            draw_background_part_ext(sheet,304,136,16,16,x-16,y,image_xscale,image_yscale,c_white,image_alpha)
+            draw_background_part_ext(sheet,336,136,16,16,x,y,image_xscale,image_yscale,c_white,image_alpha)
+        }
+    }
     if (flash) {
         x=-verybignumber
         sub.x=-verybignumber
