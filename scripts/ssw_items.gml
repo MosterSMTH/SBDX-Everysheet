@@ -56,4 +56,4 @@ switch (argument[0]) {
     case "collectclues":{ if (hspeed>=0 && skindat("itemflip")) xsc=-1 frx=12+ifr fry=11 frox=8 froy=8 break}
 }
 
-draw_sprite_part_ext(sheet,1,lx + frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)
+draw_background_part_ext(sheet,lx + frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)

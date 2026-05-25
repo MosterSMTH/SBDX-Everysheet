@@ -48,14 +48,15 @@ if (dir=0 || dir=2) x=xstart-(16-16*f)*(1-dir)
 
 if (dir=1 || dir=3) y=ystart-(16-16*f)*(dir-2)
 
-frame=(frame+0.1) mod 3
-
 if (trap) {
     mask_index=spr_16
     if (place_meeting(xstart,ystart,player) && !alarm[0]) alarm[0]=32
 }
 
 if (x!=xprevious || y!=yprevious) tile_set_position(tile,x,y)
+
+rx=43 fry=19.5
+if (anim) tile_set_region(tile,((43 + floor(global.frame)) * 16) + 8, (19.5 * 16) + 8, 16, 16)
 #define Other_10
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -88,11 +89,11 @@ mask_index=spr_maskspike
 image_index=dir
 if (dir=4) {trap=0 type=0 alarm[2]=-1 open=1 f=1}
 
-if (dir=0) {frx=31 fry=4.5}
-if (dir=1) {frx=30 fry=4.5}
-if (dir=2) {frx=33 fry=4.5}
-if (dir=3) {frx=32 fry=4.5}
-if (dir=4) {frx=30 fry=5.5}
+if (dir=0) {frx=44 fry=17.5}
+if (dir=1) {frx=43 fry=17.5}
+if (dir=2) {frx=46 fry=17.5}
+if (dir=3) {frx=45 fry=17.5}
+if (dir=4) {frx=43 fry=19.5 anim=1}
 
-if (type=0) tile_bake(global.master[biome],frx*16+8,fry*16+8,16,16,x,y,depth)
-else tile=tile_dyn(global.master[biome],frx*16+8,fry*16+8,16,16,x,y,depth)
+if (type=0) tile=tile_bake(global.everysheet[biome],frx*16+8,fry*16+8,16,16,x,y,depth)
+else tile=tile_dyn(global.everysheet[biome],frx*16+8,fry*16+8,16,16,x,y,depth)

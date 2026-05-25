@@ -4,8 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-sheet=global.master[biome]
-
+sheet=global.everysheet[biome]
 if (type="l") tile_bake(sheet,168,24,16,16,x,y,1000000)
 if (type="r") tile_bake(sheet,184,24,16,16,x,y,1000000)
 if (type="1") tile_bake(sheet,168,40,16,16,x,y,1000000)

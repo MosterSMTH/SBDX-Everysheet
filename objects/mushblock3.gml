@@ -6,7 +6,7 @@ applies_to=self
 */
 if (!position_meeting(x-8,y+8,mushblock3)) {
     getregion(x)
-    sheet=global.master[biome]
+    sheet=global.everysheet[biome]
     i=instance_create(x,y,phaser)
     if (!position_meeting(x+24,y+8,mushblock3)) {
         //1x1 mushroom without bottom

@@ -79,5 +79,5 @@ switch (argument[0]) {
 }
 
 
-if plat=0 draw_background_part_ext(global.everysheet[biome],frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc)+notex,floor(y-froy*ysc)+dy+notey,xsc,ysc,$ffffff,1)
-if (plat!=0) draw_background_part_ext(global.everysheet[biome],(frx+2)*16+8,fry*16+8,16,16,floor(x-frox*xsc+plat*16*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)
+if plat=0 draw_background_part_ext(global.everysheet[biome],lx+frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc)+notex,floor(y-froy*ysc)+dy+notey,xsc,ysc,$ffffff,1)
+if (plat!=0) draw_background_part_ext(global.everysheet[biome],lx+(frx+2)*16+8,fry*16+8,16,16,floor(x-frox*xsc+plat*16*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)

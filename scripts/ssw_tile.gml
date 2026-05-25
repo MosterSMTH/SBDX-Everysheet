@@ -3,7 +3,7 @@
 
 if (!inview()) exit
 
-var frox,froy, frx,fry, fr,ffr4,fr8,fr88, xsc,ysc,w,h, plat;
+var frox,froy, frx,fry, fr,ffr4,fr8,fr88, xsc,ysc,w,h, lx, plat;
 
 fr=global.frame
 ffr4=global.fastframe4
@@ -126,5 +126,5 @@ switch (argument[0]) {
 
 }
 
-if plat=0 draw_background_part_ext(global.everysheet[biome],frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc)+notex,floor(y-froy*ysc)+notey+dy,xsc,ysc,$ffffff,alpha)
-if (plat!=0) draw_background_part_ext(global.everysheet[biome],(frx+2)*16+8,fry*16+8,16,16,floor(x-frox*xsc+plat*16*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)
+if plat=0 draw_background_part_ext(global.everysheet[biome],lx+frx*16+8,fry*16+8,w*16,h*16,floor(x-frox*xsc)+notex,floor(y-froy*ysc)+notey+dy,xsc,ysc,$ffffff,alpha)
+if (plat!=0) draw_background_part_ext(global.everysheet[biome],lx+(frx+2)*16+8,fry*16+8,16,16,floor(x-frox*xsc+plat*16*xsc),floor(y-froy*ysc)+dy,xsc,ysc,$ffffff,1)

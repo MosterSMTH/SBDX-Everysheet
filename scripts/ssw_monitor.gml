@@ -5,7 +5,7 @@ if (!inview()) exit
 
 var frox,froy, frx,fry, fr,ffr4,fr88, xsc,ysc,w,h,sheet lx, ly;
 frox=-2 froy=4 frx=0 fry=0 w=1 h=1 xsc=1 ysc=1 lx=1360 ly=200
-sheet=global.monitorsheet[biome]
+sheet=global.everysheet[biome]
 if (object_index=monamie) fr=3
 else fr=global.frame8
 if dead fr=2
