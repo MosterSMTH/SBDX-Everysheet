@@ -10,7 +10,7 @@ for (i=0;i<8;i+=1) lm[i]=d3d_model_create()
 
 getregion(x)
 
-tex=background_get_texture(global.master[region.biome])
+tex=background_get_texture(global.everysheet[region.biome])
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1
